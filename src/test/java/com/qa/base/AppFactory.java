@@ -1,17 +1,19 @@
 package com.qa.base;
 
+import com.qa.utils.Utilities;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.Platform;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.sql.Driver;
+import java.time.Duration;
 
-import com.qa.configurationFileReader.configReader;
+import com.qa.utils.configReader;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -50,6 +52,27 @@ public class AppFactory {
             e.printStackTrace();
             throw e;
         }
+    }
+
+    public void waitForVisibility(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Utilities.WAIT));
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void clickElement(WebElement element) {
+        this.waitForVisibility(element);
+        element.click();
+    }
+
+
+    public void sendKeys(WebElement element, String text) {
+        this.waitForVisibility(element);
+        element.sendKeys(text);
+    }
+
+    public String getAttribute(WebElement element, String attribute) {
+        this.waitForVisibility(element);
+        return element.getAttribute(attribute);
     }
 
     @AfterTest

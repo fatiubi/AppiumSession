@@ -28,22 +28,26 @@ public class LoginPage extends AppFactory {
     @AndroidFindBy(accessibility = "test-LOGIN")
     public WebElement loginBtn;
 
-   By swagslabHeader = By.xpath("//android.widget.ScrollView[@content-desc=\"test-Login\"]/android.view.ViewGroup/android.widget.ImageView[1]");
+    By swagslabHeader = By.xpath("//android.widget.ScrollView[@content-desc=\"test-Login\"]/android.view.ViewGroup/android.widget.ImageView[1]");
 
-  //  @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Username and password do not match any user in this service.\"]")
-  //  public WebElement errorMessage;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Username and password do not match any user in this service.\"]")
+    public WebElement errorMessage;
 
     public void enterUserName(String userName) {
-        new WebDriverWait(AppDriver.getDriver(), Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(swagslabHeader));
-        userNameTextBox.sendKeys(userName);
+        sendKeys(userNameTextBox, userName);
     }
 
     public void enterPassword(String password) {
-        passwordTextBox.sendKeys(password);
+        sendKeys(passwordTextBox, password);
     }
 
-    public void clickLoginBtn() {
-        loginBtn.click();
+    public ProductPage clickLoginBtn() {
+        clickElement(loginBtn);
+        return new ProductPage();
+    }
+
+    public String getErrorMessage() {
+        return getAttribute(errorMessage, "text");
     }
 
 }
