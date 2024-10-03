@@ -1,7 +1,6 @@
-package com.qa.configurationFileReader;
+package com.qa.utils;
 
 import java.io.*;
-import java.nio.Buffer;
 import java.util.Properties;
 
 public class configReader {
