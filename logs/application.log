@@ -1,5 +1,2 @@
-[DEBUG] 2024-10-04 15:12:58.575 com.qa.base.AppFactory:50 - This is debug message
-[INFO ] 2024-10-04 15:12:58.579 com.qa.base.AppFactory:51 - This is info message
-[WARN ] 2024-10-04 15:12:58.580 com.qa.base.AppFactory:52 - This is warn message
-[ERROR] 2024-10-04 15:12:58.580 com.qa.base.AppFactory:53 - This is error message
-[FATAL] 2024-10-04 15:12:58.581 com.qa.base.AppFactory:54 - This is fatal message
+[ERROR] 2024-10-04 17:35:03.255 com.qa.base.AppFactory:53 - This is error message
+[FATAL] 2024-10-04 17:35:03.264 com.qa.base.AppFactory:54 - This is fatal message
